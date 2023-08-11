@@ -1,0 +1,222 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+#header {
+    background-color: #78746f;
+    box-shadow:0px 15px 10px -15px rgb(16, 14, 14);
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#header > a {
+    text-decoration: none;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header > a > img, #header > a > p {
+    padding: 4px;
+}
+
+
+#sidebarBtn {
+    background-color: rgba(255, 255, 255, 0);
+    width: 24px;
+    border: none;
+    border-radius: 4px;
+}
+
+#sidebarBtn :hover {
+    background-color: rgba(223, 225, 227, 0.257)
+}
+
+#gitLink:hover {
+    font-weight: 500;
+}
+
+#sidebarBtn > svg {
+    width: 100%;
+    padding: 4px;
+    fill: #fff;
+}
+
+#gitLink > img {
+    height: 28px;
+}
+
+#content {
+    display: flex;
+    height: 95vh;
+}
+
+#sidebar {
+    position: relative;
+    background-color: #282828;
+    box-shadow: 0 10px 2px rgb(163, 162, 162);
+    flex-grow: 1;
+    min-width: 100px;
+    width: 15%;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#createBtn {
+    width: 75%;
+    height: 36px;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 1px 1px 2px rgb(163, 162, 162);
+
+    color: white;
+    background-color: #d37556;
+    overflow: hidden;
+}
+
+#createBtn:hover {
+    background-color: rgb(68, 100, 231);
+}
+
+
+#items {
+    background-color: #504945;
+    width: 100%;
+    padding: 12px;
+    flex-grow: 1;
+}
+
+#taskGrid {
+    display: flex;
+    flex-direction: column;
+}
+
+#darken {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.242);
+    height: 100%;
+    width: 100%;
+}
+
+#newTask {
+    background-color: rgb(244, 244, 244);
+    position: absolute;
+    margin: auto;
+    width: 40%;
+    height: auto;
+    top: 25%;
+    left: 30%;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+form {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input[name="title"],
+input[type="date"] {
+    width: auto;
+    height: 24px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+textarea[name="description"] {
+    width: auto;
+    height: 64px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+input[type="checkbox"] {
+    vertical-align: auto;
+    padding: 4px;
+    margin-bottom: 12px;
+}
+
+#formBtns {
+    display: flex;
+    justify-content: end;
+}
+
+#addTask,
+#cancelTask {
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(163, 162, 162, 0.651);
+    margin: 8px;
+    width: 96px;
+}
+
+#addTask {
+    background-color: rgb(67, 105, 255);
+    color: white;
+}
+
+#cancelTask {
+    background-color: gainsboro;
+}
+
+
+/* Task DOM CSS */
+.taskItem {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowed content */
+    text-overflow: ellipsis;
+    background-color: #a89984;
+    padding: 12px;
+    border-radius: 12px;
+    position: relative;
+    transition: 0.3s;
+    margin: 12px;
+    max-width: 270px;
+    min-width: 150px;
+}
+
+.deleteTaskBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 8px;
+    margin-right: 8px;
+    width: 16px;
+    background-color: #28282800;
+    border: none;
+}
+
+.deleteTaskBtn > svg:hover {
+    fill: rgb(207, 203, 203);
+}
+
+.taskDesc, .taskDate {
+    font-size: 15px;
+}
+
+.taskDate {
+    opacity: 0;
+    transition: opacity 0.2s;
+}

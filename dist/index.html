@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Todo</title>
+</head>
+<body>
+    <div id="header">
+        <button id="sidebarBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>menu</title><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+        </button>
+        <a id="gitLink" href="https://github.com/rishithb">
+            <img src="/src/github-mark-white.svg">
+            <p>rishithb</p>
+        </a>
+    </div>
+
+    <div id="content">
+        <div id="sidebar">
+            <button id="createBtn">+ New Task</button>
+
+            <div id="projectList">
+
+            </div>
+        </div>
+        <div id="items">
+            <div id="taskGrid"></div>
+        </div>
+    </div>
+
+    <div id="darken" style="display: none;">
+        <div id="newTask">
+            <form id="FORM">
+                <input type="text" id="T" placeholder="Title" required>
+                <textarea id="D" placeholder="Description"></textarea>
+                <input type="date" id="DD">
+                
+                <label><input id="check" type="checkbox" placeholder="priority"> Priority</label>
+
+                <div id="formBtns">
+                    <button type="reset" id="cancelTask">Cancel</button>
+                    <button type="button" id="addTask">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

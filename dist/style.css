@@ -38,7 +38,8 @@
 }
 
 #sidebarBtn :hover {
-    background-color: rgba(223, 225, 227, 0.257)
+    background-color: rgba(223, 225, 227, 0.257);
+    transform: scale(1.05);
 }
 
 #gitLink:hover {
@@ -66,7 +67,7 @@
     box-shadow: 0 10px 2px rgb(163, 162, 162);
     flex-grow: 1;
     min-width: 100px;
-    width: 15%;
+    width: 20%;
     padding-top: 24px;
     padding-bottom: 24px;
 
@@ -91,6 +92,38 @@
     background-color: rgb(68, 100, 231);
 }
 
+#projectDiv {
+    padding-top: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projectList {
+    display: grid;
+    text-align: center;
+    padding: 12px;
+}
+
+.projectName {
+    color: rgb(238, 238, 238);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#projectBtn {
+    width: 75%;
+    color: rgba(238, 238, 238, 0.486);
+    background-color: #28282800;
+    border: none;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#projectBtn:hover {
+    color: rgb(214, 214, 214);
+    transform: scale(1.02);
+}
 
 #items {
     background-color: #504945;
@@ -157,6 +190,14 @@ input[type="checkbox"] {
     margin-bottom: 12px;
 }
 
+input:required:invalid+label {
+    color: red;
+  }
+
+input:required:valid+label {
+    display: none;
+  }
+
 #formBtns {
     display: flex;
     justify-content: end;
@@ -184,17 +225,16 @@ input[type="checkbox"] {
 
 /* Task DOM CSS */
 .taskItem {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflowed content */
-    text-overflow: ellipsis;
+    overflow: hidden;
     background-color: #a89984;
     padding: 12px;
     border-radius: 12px;
     position: relative;
     transition: 0.3s;
     margin: 12px;
-    max-width: 270px;
+    max-width: 18%;
     min-width: 150px;
+    max-height: fit-content;
 }
 
 .deleteTaskBtn {
@@ -212,11 +252,33 @@ input[type="checkbox"] {
     fill: rgb(207, 203, 203);
 }
 
-.taskDesc, .taskDate {
+.taskDesc {
     font-size: 15px;
+    padding-top: 8px;
 }
 
 .taskDate {
+    padding-bottom: 0px;
+    font-size: 14px;
     opacity: 0;
     transition: opacity 0.2s;
+}
+
+.addPriorBtn {
+    margin: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-top: 8px;
+    margin-right: 8px;
+    width: 16px;
+    background-color: #28282800;
+    border: none;
+}
+
+.addPriorBtn > svg:hover {
+    fill: rgb(207, 203, 203);
 }

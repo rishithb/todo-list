@@ -25,8 +25,9 @@
         <div id="sidebar">
             <button id="createBtn">+ New Task</button>
 
-            <div id="projectList">
-
+            <div id="projectDiv">
+                <div id="projectList"></div>
+                <button id="projectBtn">+ Add Project</button>
             </div>
         </div>
         <div id="items">
@@ -39,7 +40,8 @@
             <form id="FORM">
                 <input type="text" id="T" placeholder="Title" required>
                 <textarea id="D" placeholder="Description"></textarea>
-                <input type="date" id="DD">
+                <input type="date" id="DD" required>
+                <label for="DD">required</label>
                 
                 <label><input id="check" type="checkbox" placeholder="priority"> Priority</label>
 

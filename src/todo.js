@@ -9,7 +9,9 @@ function createTask() {
     let TITLE = document.getElementById("T").value
     let DESC = document.getElementById("D").value
     let DATE = new Date(document.getElementById("DD").value)
-    let newDate = format(new Date(DATE.getFullYear(), DATE.getMonth() + 1, DATE.getDay() + 1), "MMM d, yyyy")
+    let newDate
+    if (document.getElementById("DD").value == "") { newDate = ""}
+    else { newDate = format(new Date(DATE.getFullYear(), DATE.getMonth() + 1, DATE.getDay() + 1), "MMM d, yyyy") }
     let PRIOR
 
     if (document.getElementById('check').checked)
@@ -75,7 +77,7 @@ function createTaskDOM(TASK) {
     const taskDate = document.createElement("p")
     taskDate.classList.add("taskDate")
     if (TASK.dueDate == "") {
-        taskDate.innerText = TASK.dueDate
+        taskDate.innerText = ""
     }
     else  taskDate.innerText = "Due " + TASK.dueDate
     taskItem.append(taskDate)

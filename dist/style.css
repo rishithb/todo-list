@@ -5,7 +5,7 @@
 }
 
 #header {
-    background-color: #78746f;
+    background-color: #4b4a4a;
     box-shadow:0px 15px 10px -15px rgb(16, 14, 14);
     padding-left: 18px;
     padding-right: 18px;
@@ -30,14 +30,14 @@
 }
 
 
-#sidebarBtn {
+#createBtn {
     background-color: rgba(255, 255, 255, 0);
     width: 24px;
     border: none;
     border-radius: 4px;
 }
 
-#sidebarBtn :hover {
+#createBtn :hover {
     background-color: rgba(223, 225, 227, 0.257);
     transform: scale(1.05);
 }
@@ -46,7 +46,7 @@
     font-weight: 500;
 }
 
-#sidebarBtn > svg {
+#createBtn > svg {
     width: 100%;
     padding: 4px;
     fill: #fff;
@@ -61,75 +61,17 @@
     height: 95vh;
 }
 
-#sidebar {
-    position: relative;
-    background-color: #282828;
-    box-shadow: 0 10px 2px rgb(163, 162, 162);
-    flex-grow: 1;
-    min-width: 100px;
-    width: 20%;
-    padding-top: 24px;
-    padding-bottom: 24px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#createBtn {
-    width: 75%;
-    height: 36px;
-    border: none;
-    border-radius: 18px;
-    box-shadow: 1px 1px 2px rgb(163, 162, 162);
-
-    color: white;
-    background-color: #d37556;
-    overflow: hidden;
-}
-
 #createBtn:hover {
     background-color: rgb(68, 100, 231);
 }
 
-#projectDiv {
-    padding-top: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#projectList {
-    display: grid;
-    text-align: center;
-    padding: 12px;
-}
-
-.projectName {
-    color: rgb(238, 238, 238);
-    font-size: 24px;
-    font-weight: 400;
-}
-
-#projectBtn {
-    width: 75%;
-    color: rgba(238, 238, 238, 0.486);
-    background-color: #28282800;
-    border: none;
-    font-size: 20px;
-    font-weight: 300;
-}
-
-#projectBtn:hover {
-    color: rgb(214, 214, 214);
-    transform: scale(1.02);
-}
-
 #items {
-    background-color: #504945;
+    
+    background-color: #212121;
     width: 100%;
     padding: 12px;
     flex-grow: 1;
+    
 }
 
 #taskGrid {
@@ -184,19 +126,11 @@ textarea[name="description"] {
     margin-bottom: 12px;
 }
 
-input[type="checkbox"] {
+input[id="check"] {
     vertical-align: auto;
     padding: 4px;
     margin-bottom: 12px;
 }
-
-input:required:invalid+label {
-    color: red;
-  }
-
-input:required:valid+label {
-    display: none;
-  }
 
 #formBtns {
     display: flex;
@@ -225,8 +159,9 @@ input:required:valid+label {
 
 /* Task DOM CSS */
 .taskItem {
+    color: whitesmoke;
     overflow: hidden;
-    background-color: #a89984;
+    background-color: #424242;
     padding: 12px;
     border-radius: 12px;
     position: relative;
@@ -252,33 +187,35 @@ input:required:valid+label {
     fill: rgb(207, 203, 203);
 }
 
+.taskTitle {
+    font-weight: 500;
+    padding-left: 4px;
+}
+
 .taskDesc {
-    font-size: 15px;
+    color: rgba(245, 245, 245, 0.755);
+    font-weight: 300;
+    font-size: 14px;
     padding-top: 8px;
+    padding-left: 4px;
 }
 
 .taskDate {
     padding-bottom: 0px;
+    padding-left: 4px;
     font-size: 14px;
     opacity: 0;
     transition: opacity 0.2s;
 }
 
-.addPriorBtn {
-    margin: 2px;
-    opacity: 0;
-    transition: opacity 0.2s;
-
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.addPriority {
     margin-top: 8px;
     margin-right: 8px;
-    width: 16px;
+    width: 18px;
     background-color: #28282800;
     border: none;
 }
 
-.addPriorBtn > svg:hover {
+.addPriority > svg:hover {
     fill: rgb(207, 203, 203);
 }

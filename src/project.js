@@ -15,12 +15,4 @@ function projectDOM(p) {
     document.getElementById("projectList").append(projectName)
 }
 
-function openProjectCreate() {
-
-}
-
-function closeProjectCreate() {
-
-}
-
 export { project, projects, X, projectDOM }

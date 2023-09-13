@@ -1,4 +1,4 @@
-import { project, projects, X } from "./project"
+import { projects, X } from "./project"
 import { format } from "date-fns"
 
 const todo = (title, description, dueDate, priority) => {
@@ -21,7 +21,26 @@ function createTask() {
 
     var t = todo(TITLE, DESC, newDate, PRIOR)
     projects[X].projTasks.push(t)
+    updateTaskList()
     updateTaskDOM()
+}
+
+function updateTaskList() {
+    const priorities = []
+    const others = []
+
+    for (var i = 0; i < projects[X].projTasks.length; i++) {
+        let t = projects[X].projTasks[i]
+
+        if (t.priority == true) {
+            priorities.push(t)
+        }
+        else {
+            others.push(t)
+        }
+    }
+
+    projects[X].projTasks = [...priorities, ...others]
 }
 
 function updateTaskDOM() {
@@ -37,6 +56,7 @@ function createTaskDOM(TASK) {
     // item div
     const taskItem = document.createElement("div")
     taskItem.classList.add("taskItem")
+    taskItem.id = index
 
 
     // task's title
@@ -62,7 +82,7 @@ function createTaskDOM(TASK) {
 
     // task's priority
     if (TASK.priority) {
-        // add DOM for priority label
+        taskItem.style.background = "linear-gradient(rgba(234, 78, 78, 0.938),rgba(234, 78, 78, 0.938)) left / 6px   100% no-repeat, #424242"
     }
 
     const taskDelete = document.createElement("button")
@@ -78,15 +98,11 @@ function createTaskDOM(TASK) {
     taskItem.append(taskDelete)
 
     const priorityAdd = document.createElement("button")
-    priorityAdd.classList.add("addPriorBtn")
+    priorityAdd.classList.add("addPriority")
     priorityAdd.id = "prior" + index
+    priorityAdd.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>flag-variant</title><path d="M6,3A1,1 0 0,1 7,4V4.88C8.06,4.44 9.5,4 11,4C14,4 14,6 16,6C19,6 20,4 20,4V12C20,12 19,14 16,14C13,14 13,12 11,12C8,12 7,14 7,14V21H5V4A1,1 0 0,1 6,3Z" /></svg>`
     priorityAdd.style.display = "none"
-    priorityAdd.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>flag-plus</title><path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12.4,5H18V12C15.78,12 13.84,13.21 12.8,15H11L10.6,13H5V20H3V3H12L12.4,5Z" /></svg>`
-    priorityAdd.addEventListener("click", function(event) {
-        // create priority function
-    })
-    priorityAdd.style.transition = "0.2s"
-    taskItem.append(priorityAdd)
+    taskItem.appendChild(priorityAdd)
 
 
     taskItem.addEventListener("mouseenter", () => 
@@ -107,8 +123,24 @@ function createTaskDOM(TASK) {
         priorityAdd.style.opacity = "0"
     })
 
+    priorityAdd.addEventListener("click", function(event) 
+    {
+        let p = event.currentTarget.parentNode
+        let y = Number(p.id)
+        if (projects[X].projTasks[y].priority == true) {
+            projects[X].projTasks[y].priority = false
+        }
+        else { 
+            projects[X].projTasks[y].priority = true
+        }
+        console.log(projects[X].projTasks[y].priority)
+        updateTaskList()
+        updateTaskDOM()
+    })
+
     document.getElementById("taskGrid").append(taskItem)
 }
+
 
 
 function openTaskCreate() { document.getElementById("darken").style.display = "block" }
@@ -116,4 +148,4 @@ function closeTaskCreate() { document.getElementById("darken").style.display = "
 
 
 
-export { todo, openTaskCreate, closeTaskCreate, createTask, updateTaskDOM }
+export { todo, openTaskCreate, closeTaskCreate, createTask, updateTaskDOM, updateTaskList }
